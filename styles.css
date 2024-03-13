@@ -1,21 +1,21 @@
-body {
-  /* Gradient from blue to pink */
-  background: linear-gradient(to bottom right, #007bff, #ff007f);
-  width: 100vw;
-  height: 100vh;
+body{
+  background-color: yellow;
 }
-
 .container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-gap: 5px;
-  margin-bottom: 20px;
-  margin-left: 510px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin: 0 auto; /* Center the board horizontally */
+    margin-bottom: 20px;
 }
+
 .square {
   width: 100px;
   height: 100px;
@@ -24,16 +24,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; /* Add this line to center the squares horizontally */
-  border-radius: 5px;
 }
 
 .square:hover {
   cursor: pointer;
-  background-color: gray;
 }
 
-button {
+.restart-btn, .reset-btn {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
@@ -41,13 +38,17 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 10px;
+}
+.restart-btn{
+  width: 25%;
+  margin: auto;
 }
 
-button:hover {
+.restart-btn:hover, .reset-btn:hover {
   background-color: #0056b3;
 }
-/* Add styles for the popup */
+
 .popup {
   display: none;
   position: fixed;
@@ -61,16 +62,8 @@ button:hover {
 }
 
 .popup-content {
-  box-shadow: 3px 3px 10px white;
+  background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  background: linear-gradient(to bottom right, #007bff, #ff007f);
 }
-#message{
-  color: white;
-  font-weight: 600;
-}
-
-/* Add additional styles as needed */
-

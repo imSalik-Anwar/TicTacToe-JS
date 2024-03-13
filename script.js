@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   const board = document.getElementById("board");
+  const restartBtn = document.getElementById("restartBtn");
   const popup = document.getElementById("popup");
   const popupContent = document.getElementById("popupContent");
-  const messageElement = document.getElementById("message");
+  const message = document.getElementById("message");
   const resetBtn = document.getElementById("resetBtn");
   let currentPlayer = "X";
   let gameEnded = false;
@@ -49,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Function to reset the game
-  function resetGame() {
+  // Function to restart the game
+  function restartGame() {
     boardState = ["", "", "", "", "", "", "", "", ""];
     currentPlayer = "X";
     gameEnded = false;
@@ -71,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Function to show the popup with message
-  function showMessage(message) {
-    messageElement.textContent = message;
+  function showMessage(msg) {
+    message.textContent = msg;
     popup.style.display = "flex";
   }
 
@@ -84,6 +85,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Initial board render
   renderBoard();
 
-  // Event listener for the reset button
-  resetBtn.addEventListener("click", resetGame);
+  // Event listener for the restart button
+  restartBtn.addEventListener("click", restartGame);
+
+  // Event listener for the reset button inside the popup
+  resetBtn.addEventListener("click", () => {
+    hidePopup();
+    restartGame();
+  });
 });
+
